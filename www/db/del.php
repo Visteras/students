@@ -16,14 +16,14 @@ if (isset($_GET['id'])) {
             echo "Не удалось подготовить запрос: (" . $mysqli->errno . ") " . $mysqli->error;
         }
 
-        if (!$query->bind_param("i", $_GET['id'])) {
+        if (!$query->bind_param("i", $id)) {
             header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
-            echo "Не удалось привязать параметры: (" . $stmt->errno . ") " . $stmt->error;
+            echo "Не удалось привязать параметры: (" . $mysqli->errno . ") " . $mysqli->error;
         }
 
         if (!$query->execute()) {
             header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
-            echo "Не удалось выполнить запрос: (" . $stmt->errno . ") " . $stmt->error;
+            echo "Не удалось выполнить запрос: (" . $mysqli->errno . ") " . $mysqli->error;
         }
     } else {
         header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
