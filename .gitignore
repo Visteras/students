@@ -1,0 +1,4 @@
+mysql/**
+logs/**
+!/**/.gitkeep
+.idea/
